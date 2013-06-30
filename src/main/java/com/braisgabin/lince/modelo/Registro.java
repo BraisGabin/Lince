@@ -185,6 +185,7 @@ public class Registro extends ModeloDeTablaLince implements Observer {
         necesarySave = true;
     }
 
+    @Override
     public void update(Observable o, Object arg) {
         InstrumentoObservacional instrumentoObservacional = InstrumentoObservacional.getInstance();
         this.datos = instrumentoObservacional.getCriterios();
@@ -336,7 +337,6 @@ public class Registro extends ModeloDeTablaLince implements Observer {
             // Si la anterior es diferente de null toca terminar la lina anterior.
             if (filaAnterior != null) {
                 contenido += "-" + Tiempo.formatSimpleSeconds(filaRegistro.getMilis());
-                tiempo = null;
             }
 
             tiempo = Tiempo.formatSimpleSeconds(filaRegistro.getMilis());

@@ -152,6 +152,7 @@ public class FilaRegistro implements Comparable<FilaRegistro>, Serializable {
         return datosMixtos;
     }
 
+    @Override
     public int compareTo(FilaRegistro o) {
         return this.milis - o.milis;
     }

@@ -66,14 +66,17 @@ public class ModeloDeTablaLince extends AbstractTableModel {
         necesarioSave();
     }
 
+    @Override
     public int getRowCount() {
         return datosVariables.size();
     }
 
+    @Override
     public int getColumnCount() {
         return (datos == null) ? 2 : datos.length + datosMixtos.length + 2;
     }
 
+    @Override
     public Object getValueAt(int rowIndex, int col) {
         FilaRegistro fila = datosVariables.get(rowIndex);
         switch (col) {
