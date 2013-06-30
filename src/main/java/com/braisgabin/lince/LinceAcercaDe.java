@@ -31,7 +31,7 @@ public class LinceAcercaDe extends JDialog {
     private final String title = java.util.ResourceBundle.getBundle("i18n.Bundle").getString("ACERCA DE LINCE");
     private final String applicationTitle = java.util.ResourceBundle.getBundle("i18n.Bundle").getString("LINCE");
     private final String versionLabelText = java.util.ResourceBundle.getBundle("i18n.Bundle").getString("VERSION:");
-    private final String ApplicationVersion = "v1.2.1";
+    private final String ApplicationVersion = "v1.3";
     private final String autorLabelText = java.util.ResourceBundle.getBundle("i18n.Bundle").getString("AUTORES:");
     private final String applicationAutor = "Brais Gabín, Oleguer Camerino";
     private final String homepageLabelText = java.util.ResourceBundle.getBundle("i18n.Bundle").getString("WEB:");
