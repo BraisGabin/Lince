@@ -22,6 +22,7 @@ import com.braisgabin.lince.controladores.CerrarAplicacion;
 import com.braisgabin.lince.controladores.MostrarAcercaDe;
 import com.braisgabin.lince.controladores.calidad.AbrirCalcularKappa;
 import com.braisgabin.lince.controladores.exportar.*;
+import com.braisgabin.lince.controladores.importar.*;
 import com.braisgabin.lince.controladores.instrumentoobservacional.LoadInstrumentoObservacional;
 import com.braisgabin.lince.controladores.instrumentoobservacional.NewInstrumentoObservacional;
 import com.braisgabin.lince.controladores.instrumentoobservacional.SaveInstrumentoObservacional;
@@ -64,6 +65,8 @@ public class LinceMenuBar extends JMenuBar {
     private JMenuItem archivoExportarSdisGseqMultievento;
     private JMenuItem archivoExportarSas;
     private JMenuItem archivoExportarCsv;
+    private JMenu archivoImportar;
+    private JMenuItem archivoImportarHoisan;
     private JMenuItem archivoAbrirVideo;
     private JMenuItem archivoSalir;
     //private JMenu edicion;
@@ -159,11 +162,16 @@ public class LinceMenuBar extends JMenuBar {
         archivoExportar.add(archivoExportarSdisGseq);
         archivoExportar.add(archivoExportarSas);
         archivoExportar.add(archivoExportarCsv);
+        
+        archivoImportar = new JMenu(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("IMPORTAR"));
+        archivoImportarHoisan = new JMenuItem(new AbrirImportarHoisan());
+        archivoImportar.add(archivoImportarHoisan);
 
         archivo.add(archivoInstrumentoObservacional);
         archivo.add(archivoRegistro);
         archivo.add(new JSeparator());
         archivo.add(archivoExportar);
+        archivo.add(archivoImportar);
         archivo.add(new JSeparator());
         archivo.add(archivoAbrirVideo);
         archivo.add(new JSeparator());
