@@ -59,7 +59,7 @@ public class LinceApp {
     private static void setI18n() {
         try {
             File file = new File(IOController.pathAppdata() + "i18n.locale");
-            Locale locale = (Locale) ControladorArchivos.getInstance().cargarSerializable(new File(IOController.pathAppdata() + "i18n.locale"));
+            Locale locale = (Locale) ControladorArchivos.getInstance().cargarSerializable(file);
             Locale.setDefault(locale);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LinceApp.class.getName()).log(Level.SEVERE, null, ex);
