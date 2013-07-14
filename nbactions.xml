@@ -7,4 +7,11 @@
                 <goal>dependency:copy-dependencies</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-Deploy</actionName>
+            <displayName>Deploy</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+        </action>
     </actions>
