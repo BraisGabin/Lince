@@ -128,11 +128,11 @@ public class SeleccionPanel extends JPanel {
 
         down.setText(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("BAJAR"));
         down.setToolTipText(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("BAJA UNA POSICIÓN EL ELEMENTO SELECCIONADO."));
-        down.setIcon(new ImageIcon(getClass().getResource("/iconos/x16/do-down.png"))); //FIXME ¿Por que no se ven las imagenes?
+        down.setIcon(new ImageIcon(getClass().getResource("/iconos/x16/go-down.png")));
 
         up.setText(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("SUBIR"));
         up.setToolTipText(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("SUBE UNA POSICIÓN EL ELEMENTO SELECCIONADO."));
-        up.setIcon(new ImageIcon(getClass().getResource("/iconos/x16/do-up.png")));
+        up.setIcon(new ImageIcon(getClass().getResource("/iconos/x16/go-up.png")));
 
         acept.setText(">");
 
