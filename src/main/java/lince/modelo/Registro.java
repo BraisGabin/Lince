@@ -635,7 +635,8 @@ public class Registro extends ModeloDeTablaLince implements Observer {
             double acuerdo = acuerdo(valores, otrosValores, tam);
             double pe = probabilidad(valores, otrosValores, tam);
             double p0 = acuerdo / tam;
-            double kappa = (p0 - pe) / (1 - pe);
+            System.out.println(pe);
+            double kappa = pe == 1 ? 1 : (p0 - pe) / (1 - pe);
             kappas.add(kappa);
         }
         return kappas;
