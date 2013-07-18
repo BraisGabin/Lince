@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-        <action>
-            <actionName>CUSTOM-copy-dependencies</actionName>
-            <displayName>copy-dependencies</displayName>
-            <goals>
-                <goal>dependency:copy-dependencies</goal>
-            </goals>
-        </action>
-        <action>
-            <actionName>CUSTOM-Deploy</actionName>
-            <displayName>Deploy</displayName>
-            <goals>
-                <goal>package</goal>
-            </goals>
-        </action>
-    </actions>
+    <action>
+        <actionName>CUSTOM-Deploy</actionName>
+        <displayName>Deploy</displayName>
+        <goals>
+            <goal>dependency:copy-dependencies</goal>
+            <goal>package</goal>
+        </goals>
+    </action>
+</actions>
