@@ -17,20 +17,18 @@
  */
 package lince;
 
+import lince.datos.ControladorArchivos;
+import lince.utiles.IOController;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+import uk.co.caprica.vlcj.runtime.windows.WindowsRuntimeUtil;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.SwingUtilities;
-
-import lince.datos.ControladorArchivos;
-import lince.utiles.IOController;
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.binding.LibVlcFactory;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.runtime.windows.WindowsRuntimeUtil;
 
 /**
  *
@@ -44,7 +42,11 @@ public class LinceApp {
     public static void main(final String[] args) {
 
         if (RuntimeUtil.isWindows()) {
-            System.setProperty("jna.library.path", WindowsRuntimeUtil.getVlcInstallDir());
+            String vlcPath = WindowsRuntimeUtil.getVlcInstallDir();
+            /*if (StringUtils.isEmpty(vlcPath)){
+                vlcPath= "C:\\Program Files (x86)\\VideoLAN";
+            }*/
+            System.setProperty("jna.library.path", vlcPath);
             setI18n();
         }
 

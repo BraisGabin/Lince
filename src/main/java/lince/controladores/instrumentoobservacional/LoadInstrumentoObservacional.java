@@ -57,7 +57,7 @@ public class LoadInstrumentoObservacional extends Command {
                 File f = PathArchivos.getPathArchivoAbrir(fileFilters, null, null);
                 if (f != null) {
                     if (f.canRead()) {
-                        InstrumentoObservacional.loadIntance(f);
+                        InstrumentoObservacional.loadInstance(f);
                         Registro.loadNewInstance();
                     } else {
                         JOptionPane.showMessageDialog(null, java.util.ResourceBundle.getBundle("i18n.Bundle").getString("EL ARCHIVO ") + f.getName() + java.util.ResourceBundle.getBundle("i18n.Bundle").getString(" NO EXISTE."), java.util.ResourceBundle.getBundle("i18n.Bundle").getString("LINCE"), JOptionPane.INFORMATION_MESSAGE);

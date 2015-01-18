@@ -52,7 +52,7 @@ public class Registro extends ModeloDeTablaLince implements Observer {
         cambiarInstancia(new Registro());
     }
 
-    public static void loadIntance(File f) throws RegistroException {
+    public static void loadInstance(File f) throws RegistroException {
         //TODO mejorar la codificación de esta funcion
         List<String> exceptions = new ArrayList<String>();
         Registro registro = cargarRegistro(f, exceptions);

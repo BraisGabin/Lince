@@ -40,7 +40,7 @@ public class AddCriterio extends Command {
 
     @Override
     public void execute() {
-        InstrumentoObservacional.getInstance().addHijo(parent, java.util.ResourceBundle.getBundle("i18n.Bundle").getString("NUEVO CRITERIO"));
+        InstrumentoObservacional.getInstance().addHijo(parent, java.util.ResourceBundle.getBundle("i18n.Bundle").getString("criterio.defaultName"));
         //TODO: hacer que cuando creas un nodo su padre aparezca expandido
     }
 
