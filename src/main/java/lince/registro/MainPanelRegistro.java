@@ -22,6 +22,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.AWTEventListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
@@ -40,7 +41,6 @@ import lince.reproductor.Reproductor;
 import lince.utiles.MyObservable;
 
 /**
- *
  * @author Brais
  */
 public class MainPanelRegistro extends JPanel implements ChangeListener {
@@ -74,7 +74,22 @@ public class MainPanelRegistro extends JPanel implements ChangeListener {
                 }
             }
         }, eventMask);
+        long keyEventMask = AWTEvent.KEY_EVENT_MASK;
+        Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
+            private long lastPressProcessed = 0;
+            public void eventDispatched(AWTEvent e) {
+                KeyEvent currentEvent = (KeyEvent) e;
+                if(System.currentTimeMillis() - lastPressProcessed > 200) {
+                    lastPressProcessed = System.currentTimeMillis();
+                    if (currentEvent.getKeyCode() == KeyEvent.VK_P) {
+                        reproductor.playPause();
+                    } else if (currentEvent.getKeyCode() == KeyEvent.VK_ENTER) {
+                        guardarRegistro.execute();
+                    }
+                }
 
+            }
+        }, keyEventMask);
         setLayout(new BorderLayout());
 
         JSplitPane splitPanePrincipal = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -98,6 +113,7 @@ public class MainPanelRegistro extends JPanel implements ChangeListener {
         initBotonesRegistro();
         panelDerechaRegistro.add(botonesRegistro, BorderLayout.SOUTH);
         panelDerecha.addTab(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("REGISTRO"), panelDerechaRegistro);
+
 
         JPanel panelDerechaVisualizacionSelectiva = new JPanel(new BorderLayout());
         panelBotoneraVisualizacionSelectiva = new PanelBotonera(false);

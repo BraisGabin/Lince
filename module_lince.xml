@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_lince" default="compile.module.lince">
+  <dirname property="module.lince.basedir" file="${ant.file.module_lince}"/>
+  
+  <property name="module.jdk.home.lince" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.lince" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.lince" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.lince" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="lince.output.dir" value="${module.lince.basedir}/target/classes"/>
+  <property name="lince.testoutput.dir" value="${module.lince.basedir}/target/test-classes"/>
+  
+  <path id="lince.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="lince.module.production.classpath">
+    <path refid="${module.jdk.classpath.lince}"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_uk.co.caprica:vlcj:2.4.0.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:jna:3.5.2.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:platform:3.5.2.classpath"/>
+    <path refid="library.maven:_org.jdesktop:beansbinding:1.2.1.classpath"/>
+    <path refid="library.maven:_com.healthmarketscience.jackcess:jackcess:1.2.13.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.0.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.0.3.classpath"/>
+    <path refid="library.maven:_de.bwaldvogel:liblinear:1.95.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-all:1.8.4.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-mockito:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-support:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-core:1.5.6.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.2-ga.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-reflect:1.5.6.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-assert:1.4.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-util:1.1.6.classpath"/>
+  </path>
+  
+  <path id="lince.runtime.production.module.classpath">
+    <pathelement location="${lince.output.dir}"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_uk.co.caprica:vlcj:2.4.0.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:jna:3.5.2.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:platform:3.5.2.classpath"/>
+    <path refid="library.maven:_org.jdesktop:beansbinding:1.2.1.classpath"/>
+    <path refid="library.maven:_com.healthmarketscience.jackcess:jackcess:1.2.13.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.0.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.0.3.classpath"/>
+    <path refid="library.maven:_de.bwaldvogel:liblinear:1.95.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-all:1.8.4.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-mockito:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-support:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-core:1.5.6.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.2-ga.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-reflect:1.5.6.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-assert:1.4.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-util:1.1.6.classpath"/>
+  </path>
+  
+  <path id="lince.module.classpath">
+    <path refid="${module.jdk.classpath.lince}"/>
+    <pathelement location="${lince.output.dir}"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_uk.co.caprica:vlcj:2.4.0.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:jna:3.5.2.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:platform:3.5.2.classpath"/>
+    <path refid="library.maven:_org.jdesktop:beansbinding:1.2.1.classpath"/>
+    <path refid="library.maven:_com.healthmarketscience.jackcess:jackcess:1.2.13.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.0.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.0.3.classpath"/>
+    <path refid="library.maven:_de.bwaldvogel:liblinear:1.95.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-all:1.8.4.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-mockito:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-support:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-core:1.5.6.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.2-ga.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-reflect:1.5.6.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-assert:1.4.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-util:1.1.6.classpath"/>
+  </path>
+  
+  <path id="lince.runtime.module.classpath">
+    <pathelement location="${lince.testoutput.dir}"/>
+    <pathelement location="${lince.output.dir}"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_uk.co.caprica:vlcj:2.4.0.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:jna:3.5.2.classpath"/>
+    <path refid="library.maven:_net.java.dev.jna:platform:3.5.2.classpath"/>
+    <path refid="library.maven:_org.jdesktop:beansbinding:1.2.1.classpath"/>
+    <path refid="library.maven:_com.healthmarketscience.jackcess:jackcess:1.2.13.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.0.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.0.3.classpath"/>
+    <path refid="library.maven:_de.bwaldvogel:liblinear:1.95.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-all:1.8.4.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-mockito:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-api-support:1.5.6.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-core:1.5.6.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.2-ga.classpath"/>
+    <path refid="library.maven:_org.powermock:powermock-reflect:1.5.6.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-assert:1.4.classpath"/>
+    <path refid="library.maven:_org.easytesting:fest-util:1.1.6.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.lince">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.lince">
+    <patternset refid="excluded.from.module.lince"/>
+  </patternset>
+  
+  <path id="lince.module.sourcepath">
+    <dirset dir="${module.lince.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="lince.module.test.sourcepath">
+    <dirset dir="${module.lince.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.lince" depends="compile.module.lince.production,compile.module.lince.tests" description="Compile module Lince"/>
+  
+  <target name="compile.module.lince.production" depends="register.custom.compilers" description="Compile module Lince; production classes">
+    <mkdir dir="${lince.output.dir}"/>
+    <javac2 destdir="${lince.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.lince}/javac">
+      <compilerarg line="${compiler.args.lince}"/>
+      <bootclasspath refid="lince.module.bootclasspath"/>
+      <classpath refid="lince.module.production.classpath"/>
+      <src refid="lince.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.lince"/>
+    </javac2>
+    
+    <copy todir="${lince.output.dir}">
+      <fileset dir="${module.lince.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.lince.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.lince.tests" depends="register.custom.compilers,compile.module.lince.production" description="compile module Lince; test classes" unless="skip.tests">
+    <mkdir dir="${lince.testoutput.dir}"/>
+    <javac2 destdir="${lince.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.lince}/javac">
+      <compilerarg line="${compiler.args.lince}"/>
+      <bootclasspath refid="lince.module.bootclasspath"/>
+      <classpath refid="lince.module.classpath"/>
+      <src refid="lince.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.lince"/>
+    </javac2>
+    
+    <copy todir="${lince.testoutput.dir}">
+      <fileset dir="${module.lince.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.lince" description="cleanup module">
+    <delete dir="${lince.output.dir}"/>
+    <delete dir="${lince.testoutput.dir}"/>
+  </target>
+</project>

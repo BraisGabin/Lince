@@ -66,6 +66,7 @@ public class LinceMenuBar extends JMenuBar {
     private JMenuItem archivoExportarSdisGseqMultievento;
     private JMenuItem archivoExportarSas;
     private JMenuItem archivoExportarCsv;
+    private JMenuItem archivoExportarCsvCategorias;
     private JMenu archivoImportar;
     private JMenuItem archivoImportarHoisan;
     private JMenuItem archivoAbrirVideo;
@@ -149,6 +150,7 @@ public class LinceMenuBar extends JMenuBar {
         archivoExportarSdisGseqMultievento = new JMenuItem(new AbrirExportarSdisGseqMultievento());
         archivoExportarSas = new JMenuItem(new AbrirExportarSas());
         archivoExportarCsv = new JMenuItem(new AbrirExportarCsv());
+        //archivoExportarCsvCategorias = new JMenuItem(new AbrirExportarCsv());
 
         archivoExportarTheme.add(archivoExportarTheme6);
         archivoExportarTheme.add(archivoExportarTheme5);
