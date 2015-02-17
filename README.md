@@ -13,3 +13,10 @@ Alberto Soto
 ------------
 Guia basica de desarrollo
 
+Existe una limitación en el desarrollo bastante importante generada por un conflicto de versiones en la libreria de VLC.
+La libreria se carga en el inicio a partir del directorio de instalación de VLC y si el JRE no es de 32 bits,
+falla automaticamente al arrancar el software.
+
+Para solventarlo se debe configurar maven y los jdks de desarrollo a la versión 1.6 o superior de 32bits
+
+
