@@ -52,13 +52,16 @@ public class AbrirExportarHoisan extends Command {
             fc.setAcceptAllFileFilterUsed(false);
         }
         //Show it.
-        int returnVal = fc.showDialog(LinceFrame.getInstance(),"Attach");
+        int returnVal = fc.showDialog(LinceFrame.getInstance()
+                ,ResourceBundleHelper.getI18NLabel("actions.export.Hoisan.confirm"));
         //Process the results.
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             log.warn("Init export to Hoisan file: " + file.getName() + ".");
             HoisanTool hoisan = new HoisanTool();
-            hoisan.exportFile(file);
+            boolean result  = hoisan.exportFile(file);
+            String message = ResourceBundleHelper.getI18NLabel(result?"action.result.export.ok":"action.result.export.fail");
+            JOptionPane.showMessageDialog(LinceFrame.getInstance(), message);
         } else {
             log.warn("Hoisan export cancelled by user.");
         }

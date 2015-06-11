@@ -24,25 +24,6 @@ public class HoisanTool {
    private Logger log = Logger.getLogger(HoisanTool.class.getName());
    private static final String HOISAN_TEMPLATE_FILE = "template/hoisanTemplate.mdb";
    private static final int FRAME_WINDOW = 40;
-
-   /**
-    *
-    * @param outputFile
-    * @return
-    */
-   public boolean exportFile(File outputFile) {
-      try {
-         ClassLoader classLoader = getClass().getClassLoader();
-         File file = new File(classLoader.getResource(HOISAN_TEMPLATE_FILE).getFile());
-         FileUtils.copyFile(file, outputFile);
-         outputFile.renameTo(new File(StringUtils.substringBeforeLast(outputFile.getPath(),".")+".mdb"));
-         return true;
-      } catch (Exception e) {
-         log.error("Error copying file ", e);
-      }
-      return false;
-   }
-
    /**
     * @param file
     * @return
@@ -77,8 +58,38 @@ public class HoisanTool {
       }
       return true;
    }
+   /**
+    *
+    * @param outputFile
+    * @return
+    */
+   public boolean exportFile(File outputFile) {
+      try {
+         createValidEmptyHoisanFile(outputFile);
+         return true;
+      } catch (Exception e) {
+         log.error("Error copying file ", e);
+      }
+      return false;
+   }
 
    /**
+    * Creates on selected File a valid Hoisan Empty File
+    * @param outputFile
+    * @throws IOException
+    */
+   private void createValidEmptyHoisanFile(File outputFile) throws IOException {
+      ClassLoader classLoader = getClass().getClassLoader();
+      File file = new File(classLoader.getResource(HOISAN_TEMPLATE_FILE).getFile());
+      FileUtils.copyFile(file, outputFile);
+      outputFile.renameTo(new File(StringUtils.substringBeforeLast(outputFile.getPath(),".")+".mdb"));
+   }
+
+
+
+   /**
+    * Old function for managing existing files
+    *
     * @param dir
     * @param name
     * @param extension
