@@ -66,6 +66,7 @@ public class LinceMenuBar extends JMenuBar {
     private JMenuItem archivoExportarSdisGseqMultievento;
     private JMenuItem archivoExportarSas;
     private JMenuItem archivoExportarCsv;
+    private JMenuItem archivoExportarHoisan;
     private JMenuItem archivoExportarCsvCategorias;
     private JMenu archivoImportar;
     private JMenuItem archivoImportarHoisan;
@@ -150,6 +151,7 @@ public class LinceMenuBar extends JMenuBar {
         archivoExportarSdisGseqMultievento = new JMenuItem(new AbrirExportarSdisGseqMultievento());
         archivoExportarSas = new JMenuItem(new AbrirExportarSas());
         archivoExportarCsv = new JMenuItem(new AbrirExportarCsv());
+        archivoExportarHoisan = new JMenuItem(new AbrirExportarHoisan());
         //archivoExportarCsvCategorias = new JMenuItem(new AbrirExportarCsv());
 
         archivoExportarTheme.add(archivoExportarTheme6);
@@ -165,6 +167,8 @@ public class LinceMenuBar extends JMenuBar {
         archivoExportar.add(archivoExportarSdisGseq);
         archivoExportar.add(archivoExportarSas);
         archivoExportar.add(archivoExportarCsv);
+        archivoExportar.add(archivoExportarHoisan);
+
         
         archivoImportar = new JMenu(java.util.ResourceBundle.getBundle("i18n.Bundle").getString("IMPORTAR"));
         archivoImportarHoisan = new JMenuItem(new AbrirImportarHoisan());

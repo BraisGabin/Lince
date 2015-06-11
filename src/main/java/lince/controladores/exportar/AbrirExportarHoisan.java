@@ -15,46 +15,41 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package lince.controladores.importar;
+package lince.controladores.exportar;
 
 import lince.Command;
-import lince.plugins.HoisanConnector;
-import lince.utiles.FiltroArchivos;
-import lince.utiles.PathArchivos;
+import lince.LinceFrame;
+import lince.exportar.ExportarCsvPanel;
 import lince.utiles.ResourceBundleHelper;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- *
  * @author Brais
  */
-public class AbrirImportarHoisan extends Command {
-    public static final String IMPORT_HOISAN_COMMAND_ID = "AbrirImportarHoisan";
-    public AbrirImportarHoisan() {
+public class AbrirExportarHoisan extends Command {
+
+    public static final String EXPORT_HOISAN_COMMAND_ID = "AbrirExportarHoisan";
+
+    public AbrirExportarHoisan() {
         putValue(Action.NAME, ResourceBundleHelper.getI18NLabel("HOISAN"));
-        putValue(Action.ACTION_COMMAND_KEY, IMPORT_HOISAN_COMMAND_ID);
-        putValue(Action.SHORT_DESCRIPTION, ResourceBundleHelper.getI18NLabel("actions.import.Hoisan"));
+        putValue(Action.ACTION_COMMAND_KEY, EXPORT_HOISAN_COMMAND_ID);
+        putValue(Action.SHORT_DESCRIPTION, ResourceBundleHelper.getI18NLabel("actions.export.Hoisan"));
     }
 
     @Override
     public void execute() {
-        List<FileFilter> fileFilters = new ArrayList<FileFilter>();
-        fileFilters.add(new FiltroArchivos("mdb", ResourceBundleHelper.getI18NLabel("HOISAN")));
-        File f = PathArchivos.getPathArchivoAbrir(fileFilters, null, null);
-        HoisanConnector hoisanConnector = new HoisanConnector();
-        hoisanConnector.importFile(f);
+        JDialog dialog = new JDialog(LinceFrame.getInstance(), ResourceBundleHelper.getI18NLabel("EXPORTAR EXCEL"), JDialog.DEFAULT_MODALITY_TYPE);
+        JPanel mainPanel = new ExportarCsvPanel();
+        dialog.setMinimumSize(mainPanel.getMinimumSize());
+        dialog.setMaximumSize(mainPanel.getMaximumSize());
+        dialog.setPreferredSize(mainPanel.getPreferredSize());
+        dialog.setContentPane(mainPanel);
+        dialog.setVisible(true);
     }
-
 
     @Override
     public void unExecute() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-
 }
