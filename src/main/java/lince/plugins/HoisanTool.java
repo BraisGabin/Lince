@@ -10,42 +10,61 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 
 /**
- * Created by deicos on 08/06/2015.
+ * Created by Alberto Soto on 08/06/2015.
  */
-public class HoisanConnector {
+public class HoisanTool {
 
-   private Logger log = Logger.getLogger(HoisanConnector.class.getName());
+   private Logger log = Logger.getLogger(HoisanTool.class.getName());
    private static final String HOISAN_TEMPLATE_FILE = "template/hoisanTemplate.mdb";
    private static final int FRAME_WINDOW = 40;
 
-   public boolean exportFile() {
+   /**
+    *
+    * @param outputFile
+    * @return
+    */
+   public boolean exportFile(File outputFile) {
+      try {
+         ClassLoader classLoader = getClass().getClassLoader();
+         File file = new File(classLoader.getResource(HOISAN_TEMPLATE_FILE).getFile());
+         FileUtils.copyFile(file, outputFile);
+         outputFile.renameTo(new File(StringUtils.substringBeforeLast(outputFile.getPath(),".")+".mdb"));
+         return true;
+      } catch (Exception e) {
+         log.error("Error copying file ", e);
+      }
       return false;
    }
 
    /**
-    * @param f
+    * @param file
     * @return
     */
-   public boolean importFile(File f) {
-      if (f != null) {
+   public boolean importFile(File file) {
+      if (file != null) {
          try {
-            Database db = Database.open(f);
+            Database db = Database.open(file);
             Table criterios = db.getTable(HoisanVars.CRITERIA_TABLE_NAME.toString());
             Table categorias = db.getTable(HoisanVars.CATEGORY_TABLE_NAME.toString());
             Table tiempos = db.getTable(HoisanVars.OBSERVATION_TIMES_TABLE_NAME.toString());
             Table tiempoCategorias = db.getTable(HoisanVars.OBSERVATION_CATEGORY_TABLE_NAME.toString());
             InstrumentoObservacional instrumentoObservacional = generateInstrumentObservacional(criterios, categorias);
             Map<String, Registro> registros = generateRegistros(tiempos, tiempoCategorias, criterios, categorias, instrumentoObservacional);
-            File parentFile = f.getParentFile();
+            File parentFile = file.getParentFile();
+            //generamos una carpeta a mismo nivel de fichero seleccionado
             File linceDir = getFreeFile(parentFile, "Lince", "");
             linceDir.mkdir();
-            instrumentoObservacional.setPath(getFreeFile(linceDir, f.getName(), ".ilince"));
+            //guardamos el instrumento observacional en el fichero asociado
+            instrumentoObservacional.setPath(getFreeFile(linceDir, file.getName(), ".ilince"));
             instrumentoObservacional.save();
+            //generamos un nuevo fichero de registro para cada uno de los registros detectados
             for (Map.Entry<String, Registro> row : registros.entrySet()) {
                Registro registro = row.getValue();
                registro.setPath(getFreeFile(linceDir, new File(row.getKey()).getName(), ".rlince"));
@@ -59,6 +78,12 @@ public class HoisanConnector {
       return true;
    }
 
+   /**
+    * @param dir
+    * @param name
+    * @param extension
+    * @return
+    */
    private File getFreeFile(File dir, String name, String extension) {
       File f = new File(dir, name + extension);
       int i = 2;
@@ -68,6 +93,12 @@ public class HoisanConnector {
       return f;
    }
 
+   /**
+    *
+    * @param criterios
+    * @param categorias
+    * @return
+    */
    private InstrumentoObservacional generateInstrumentObservacional(Table criterios, Table categorias) {
       InstrumentoObservacional.loadNewInstance();
       InstrumentoObservacional instrumentoObservacional = InstrumentoObservacional.getInstance();
@@ -97,7 +128,12 @@ public class HoisanConnector {
       return instrumentoObservacional;
    }
 
-
+   /**
+    *
+    * @param criterio
+    * @param criterioId
+    * @param categorias
+    */
    private void generateCategorias(Criterio criterio, Integer criterioId, Table categorias) {
       for (Map<String, Object> row : categorias) {
          String currentCriteriaFK = HoisanVars.CATEGORY_CRITERIA_ID.getStringValue(row);
@@ -110,6 +146,15 @@ public class HoisanConnector {
       }
    }
 
+   /**
+    *
+    * @param tiempos
+    * @param tiempoCategorias
+    * @param criterios
+    * @param categorias
+    * @param instrumentoObservacional
+    * @return
+    */
    private Map<String, Registro> generateRegistros(Table tiempos, Table tiempoCategorias, Table criterios, Table categorias, InstrumentoObservacional instrumentoObservacional) {
       Map<String, Registro> registros = new HashMap<String, Registro>();
       for (Map<String, Object> row : tiempos) {
@@ -134,13 +179,22 @@ public class HoisanConnector {
       return registros;
    }
 
-   private Map<Criterio, Categoria> generateRegisterRow(Integer id, Table tiempoCategorias, Table criterioTable, Table categoriaTable, Criterio criterios[]) {
+   /**
+    *
+    * @param timeId
+    * @param tiempoCategorias
+    * @param criterioTable
+    * @param categoriaTable
+    * @param criterios
+    * @return
+    */
+   private Map<Criterio, Categoria> generateRegisterRow(Integer timeId, Table tiempoCategorias, Table criterioTable, Table categoriaTable, Criterio criterios[]) {
       Map<Criterio, Categoria> rtn = new HashMap<Criterio, Categoria>();
       for (Map<String, Object> row : tiempoCategorias) {
          final Integer currentCriteriaID = HoisanVars.CRITERIA_ID.getIntValue(row);
          final Integer currentCategoryID = HoisanVars.CATEGORY_ID.getIntValue(row);
          final Integer currentTimeID = HoisanVars.TIME_ID.getIntValue(row);
-         if (currentTimeID.equals(id)) {
+         if (currentTimeID.equals(timeId)) {
             Criterio criteria = findCriterio(criterios, criterioTable, currentCriteriaID);
             if (criteria != null) { // TODO registrar los fijos
                Categoria ca = findCategory(criteria, categoriaTable, currentCategoryID);
@@ -151,10 +205,16 @@ public class HoisanConnector {
       return rtn;
    }
 
+   /**
+    * @param cs
+    * @param criterios
+    * @param id
+    * @return
+    */
    private Criterio findCriterio(Criterio cs[], Table criterios, int id) {
       String nombre = findCriteriaById(criterios, id);
       for (Criterio c : cs) {
-         if (c.getNombre().equals(nombre)) {
+         if (StringUtils.equals(c.getNombre(), nombre)) {
             return c;
          }
       }
@@ -162,7 +222,6 @@ public class HoisanConnector {
    }
 
    /**
-    *
     * @param c
     * @param categoriaTable
     * @param id

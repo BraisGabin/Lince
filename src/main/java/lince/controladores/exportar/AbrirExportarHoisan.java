@@ -1,6 +1,7 @@
+
 /*
  *  Lince - Automatizacion de datos observacionales
- *  Copyright (C) 2011  Brais Gabin Moreira
+ *  Copyright (C) 2105 Alberto Soto Fernández
  * 
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -19,18 +20,23 @@ package lince.controladores.exportar;
 
 import lince.Command;
 import lince.LinceFrame;
-import lince.exportar.ExportarCsvPanel;
+import lince.plugins.HoisanTool;
+import lince.utiles.FiltroArchivos;
 import lince.utiles.ResourceBundleHelper;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
+import java.io.File;
 
 /**
- * @author Brais
+ * @author Alberto Soto
  */
 public class AbrirExportarHoisan extends Command {
 
     public static final String EXPORT_HOISAN_COMMAND_ID = "AbrirExportarHoisan";
+    private Logger log = Logger.getLogger(AbrirExportarHoisan.class.getName());
 
+    private JFileChooser fc;
     public AbrirExportarHoisan() {
         putValue(Action.NAME, ResourceBundleHelper.getI18NLabel("HOISAN"));
         putValue(Action.ACTION_COMMAND_KEY, EXPORT_HOISAN_COMMAND_ID);
@@ -39,13 +45,25 @@ public class AbrirExportarHoisan extends Command {
 
     @Override
     public void execute() {
-        JDialog dialog = new JDialog(LinceFrame.getInstance(), ResourceBundleHelper.getI18NLabel("EXPORTAR EXCEL"), JDialog.DEFAULT_MODALITY_TYPE);
-        JPanel mainPanel = new ExportarCsvPanel();
-        dialog.setMinimumSize(mainPanel.getMinimumSize());
-        dialog.setMaximumSize(mainPanel.getMaximumSize());
-        dialog.setPreferredSize(mainPanel.getPreferredSize());
-        dialog.setContentPane(mainPanel);
-        dialog.setVisible(true);
+        if (fc == null) {
+            fc = new JFileChooser();
+            //Add a custom file filter and disable the default
+            fc.addChoosableFileFilter(new FiltroArchivos("mdb",ResourceBundleHelper.getI18NLabel("HOISAN")));
+            fc.setAcceptAllFileFilterUsed(false);
+        }
+        //Show it.
+        int returnVal = fc.showDialog(LinceFrame.getInstance(),"Attach");
+        //Process the results.
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            log.warn("Init export to Hoisan file: " + file.getName() + ".");
+            HoisanTool hoisan = new HoisanTool();
+            hoisan.exportFile(file);
+        } else {
+            log.warn("Hoisan export cancelled by user.");
+        }
+        //Reset the file chooser for the next time it's shown.
+        fc.setSelectedFile(null);
     }
 
     @Override

@@ -18,7 +18,7 @@
 package lince.controladores.importar;
 
 import lince.Command;
-import lince.plugins.HoisanConnector;
+import lince.plugins.HoisanTool;
 import lince.utiles.FiltroArchivos;
 import lince.utiles.PathArchivos;
 import lince.utiles.ResourceBundleHelper;
@@ -46,7 +46,7 @@ public class AbrirImportarHoisan extends Command {
         List<FileFilter> fileFilters = new ArrayList<FileFilter>();
         fileFilters.add(new FiltroArchivos("mdb", ResourceBundleHelper.getI18NLabel("HOISAN")));
         File f = PathArchivos.getPathArchivoAbrir(fileFilters, null, null);
-        HoisanConnector hoisanConnector = new HoisanConnector();
+        HoisanTool hoisanConnector = new HoisanTool();
         hoisanConnector.importFile(f);
     }
 
