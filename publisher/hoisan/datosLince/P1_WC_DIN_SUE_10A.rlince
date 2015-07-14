@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>datosEstaticos</string>
+   <object class="java.util.HashMap"/>
+  </void>
+  <void method="put">
+   <string>nombreInstrumentoObservacional</string>
+   <string>Instrumento de Observación</string>
+  </void>
+  <void method="put">
+   <string>datosVariables</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4041996</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio0">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria0">
+           <void property="codigo">
+            <string>ON</string>
+           </void>
+           <void property="descripcion">
+            <string>Inicio posesión de balón equipo observado</string>
+           </void>
+           <void property="nombre">
+            <string>INICIO DE LA POSESIÓN DE BALÓN DEL EQUIPO OBSERVADO</string>
+           </void>
+           <void property="codigo">
+            <string>ON</string>
+           </void>
+           <void property="descripcion">
+            <string>Inicio posesión de balón equipo observado</string>
+           </void>
+           <void property="nombre">
+            <string>INICIO DE LA POSESIÓN DE BALÓN DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria1">
+           <void property="codigo">
+            <string>OFF</string>
+           </void>
+           <void property="nombre">
+            <string>FINAL DE LA POSESIÓN DE BALÓN DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void property="descripcion">
+          <string>Inicio y final de posesión de balón del equipo observado.
+</string>
+         </void>
+         <void property="nombre">
+          <string>INICIO Y FINAL DE POSESIÓN DE BALÓN</string>
+         </void>
+        </object>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4072271</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio1">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria2">
+           <void property="codigo">
+            <string>S1</string>
+           </void>
+           <void property="descripcion">
+            <string>
+</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE 1</string>
+           </void>
+           <void property="codigo">
+            <string>S1</string>
+           </void>
+           <void property="descripcion">
+            <string>
+</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE 1</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria3">
+           <void property="codigo">
+            <string>S2</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE 2</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria4">
+           <void property="codigo">
+            <string>S3</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE 3</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria5">
+           <void property="codigo">
+            <string>S4</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE 4</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>SA</string>
+           </void>
+           <void property="nombre">
+            <string>SECUENCIA DE ATAQUE MAYOR DE 4</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>ATAQUE POSICIONAL</string>
+         </void>
+        </object>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio2">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria6">
+           <void property="codigo">
+            <string>Z6M</string>
+           </void>
+           <void property="nombre">
+            <string>ZONA DE 6 METROS</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria7">
+           <void property="codigo">
+            <string>ZIM</string>
+           </void>
+           <void property="nombre">
+            <string>ZONA INTERMEDIS ENTRE 6 Y 9 METROS</string>
+           </void>
+           <void property="codigo">
+            <string>ZIM</string>
+           </void>
+           <void property="nombre">
+            <string>ZONA INTERMEDIS ENTRE 6 Y 9 METROS</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria8">
+           <void property="codigo">
+            <string>Z9M</string>
+           </void>
+           <void property="nombre">
+            <string>ZONA DE 9 METROS</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>ZONA DE FINALIZACIÓN</string>
+         </void>
+        </object>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio3">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>SEIS</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA SEIS CERO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>CINCO</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA CINCO UNO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>CUAT</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA CUATRO DOS</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>TRES</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA TRES DOS UNO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria9">
+           <void property="codigo">
+            <string>MIXT1</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA MIXTA</string>
+           </void>
+           <void property="codigo">
+            <string>MIXT1</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA MIXTA</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>MIXT2</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA DOBLE MIXTA</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>IND</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA INDIVIDUAL</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>DOSL</string>
+           </void>
+           <void property="nombre">
+            <string>DEFENSA DOS LINEAS</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>DEFENSA CONTRARIA</string>
+         </void>
+        </object>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio4">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>V1</string>
+           </void>
+           <void property="nombre">
+            <string>VICTORIA POR 1 GOL</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>V2</string>
+           </void>
+           <void property="nombre">
+            <string>VICTORIA POR 2 GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria10">
+           <void property="codigo">
+            <string>V3</string>
+           </void>
+           <void property="nombre">
+            <string>VICTORIA POR 3 GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria11">
+           <void property="codigo">
+            <string>VA</string>
+           </void>
+           <void property="nombre">
+            <string>VICTORIA POR MÁS DE 3 GOLES</string>
+           </void>
+           <void property="codigo">
+            <string>VA</string>
+           </void>
+           <void property="nombre">
+            <string>VICTORIA POR MÁS DE 3 GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>E</string>
+           </void>
+           <void property="nombre">
+            <string>EMPATE</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>P1</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIENDO POR 1 GOL</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>P2</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIENDO POR DOS GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>P3</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIENDO POR 3 GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>PA</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIENDO POR MÁS DE 3 GOLES</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>MARCADOR</string>
+         </void>
+        </object>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio5">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria12">
+           <void property="codigo">
+            <string>GOL</string>
+           </void>
+           <void property="nombre">
+            <string>GOL</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria13">
+           <void property="codigo">
+            <string>BEL</string>
+           </void>
+           <void property="nombre">
+            <string>BUENA ELECCIÓN DE LANZAMIENTO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>SM</string>
+           </void>
+           <void property="descripcion">
+            <string>Siete metros</string>
+           </void>
+           <void property="nombre">
+            <string>SIETE METROS</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria14">
+           <void property="codigo">
+            <string>GF</string>
+           </void>
+           <void property="nombre">
+            <string>GOLPE FRANCO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria15">
+           <void property="codigo">
+            <string>MEL</string>
+           </void>
+           <void property="nombre">
+            <string>MALA ELECCIÓN DE LANZAMIENTO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria16">
+           <void property="codigo">
+            <string>PB</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIDA DE BALÓN</string>
+           </void>
+           <void property="codigo">
+            <string>PB</string>
+           </void>
+           <void property="nombre">
+            <string>PERDIDA DE BALÓN</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria17">
+           <void property="codigo">
+            <string>IR</string>
+           </void>
+           <void property="nombre">
+            <string>INFRACCIÓN REGLAMENTARIA</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>IT</string>
+           </void>
+           <void property="nombre">
+            <string>INTERRUPCIÓN TEMPORAL</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>TIPO DE FINALIZACIÓN</string>
+         </void>
+        </object>
+        <object idref="Categoria16"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio6">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria18">
+           <void property="codigo">
+            <string>IGUAL</string>
+           </void>
+           <void property="descripcion">
+            <string> </string>
+           </void>
+           <void property="nombre">
+            <string>IGUALDAD NUMÉRICA</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>SUP</string>
+           </void>
+           <void property="nombre">
+            <string>SUPERIORIDAD NUMERICA DE UN JUGADOR DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>SUP2</string>
+           </void>
+           <void property="nombre">
+            <string>SUPERIORIDAD NUMERICA DE DOS O MAS JUGADORES DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria19">
+           <void property="codigo">
+            <string>INF</string>
+           </void>
+           <void property="nombre">
+            <string>INFERIORIDAD NUMERICA DE UN JUGADOR DEL EQUIPO OBSERVADO</string>
+           </void>
+           <void property="codigo">
+            <string>INF</string>
+           </void>
+           <void property="nombre">
+            <string>INFERIORIDAD NUMERICA DE UN JUGADOR DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria">
+           <void property="codigo">
+            <string>INF2</string>
+           </void>
+           <void property="nombre">
+            <string>INFERIORIDAD NUMERICA DE DOS O MAS JUGADORES DEL EQUIPO OBSERVADO</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>SIMETRIA / ASIMETRIA</string>
+         </void>
+        </object>
+        <object idref="Categoria19"/>
+       </void>
+       <void method="put">
+        <object class="lince.modelo.InstrumentoObservacional.Criterio" id="Criterio7">
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria20">
+           <void property="codigo">
+            <string>MTB</string>
+           </void>
+           <void property="nombre">
+            <string>MEDIOS TÁCTICOS BÁSICOS</string>
+           </void>
+           <void property="codigo">
+            <string>MTB</string>
+           </void>
+           <void property="nombre">
+            <string>MEDIOS TÁCTICOS BÁSICOS</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="lince.modelo.InstrumentoObservacional.Categoria" id="Categoria21">
+           <void property="codigo">
+            <string>MTC</string>
+           </void>
+           <void property="nombre">
+            <string>MEDIOS TÁCTICOS COMPLEJOS</string>
+           </void>
+          </object>
+         </void>
+         <void property="nombre">
+          <string>MEDIOS TÁCTICOS</string>
+         </void>
+        </object>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4075021</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4088221</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4104971</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria14"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria19"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4122441</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria3"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria6"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria12"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria19"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4125191</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4143851</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4168601</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria14"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4176811</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria3"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria16"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4179836</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4196061</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4288061</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria16"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4290261</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4356706</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4390106</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria6"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria12"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4392306</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4422831</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4451009</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria17"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4453531</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4479106</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4507481</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria13"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4511961</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria3"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria14"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4521905</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria4"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria8"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria15"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4533981</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria5"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria6"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria15"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4536181</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4567751</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4577228</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria16"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4580026</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4594876</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4621976</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria8"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria11"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria15"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria20"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4625536</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4652501</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria0"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4662951</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria2"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria7"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria10"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria14"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4674242</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio1"/>
+        <object idref="Categoria3"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio2"/>
+        <object idref="Categoria8"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio3"/>
+        <object idref="Categoria9"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio4"/>
+        <object idref="Categoria10"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio5"/>
+        <object idref="Categoria15"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio6"/>
+        <object idref="Categoria18"/>
+       </void>
+       <void method="put">
+        <object idref="Criterio7"/>
+        <object idref="Categoria21"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+    <void method="add">
+     <object class="lince.modelo.FilaRegistro">
+      <int>4676326</int>
+      <object class="java.util.HashMap">
+       <void method="put">
+        <object idref="Criterio0"/>
+        <object idref="Categoria1"/>
+       </void>
+      </object>
+      <object class="java.util.HashMap"/>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>criterios</string>
+   <array class="lince.modelo.InstrumentoObservacional.Criterio" length="10">
+    <void index="0">
+     <object idref="Criterio0"/>
+    </void>
+    <void index="1">
+     <object idref="Criterio4"/>
+    </void>
+    <void index="2">
+     <object idref="Criterio3"/>
+    </void>
+    <void index="3">
+     <object idref="Criterio6"/>
+    </void>
+    <void index="4">
+     <object idref="Criterio1"/>
+    </void>
+    <void index="5">
+     <object class="lince.modelo.InstrumentoObservacional.Criterio">
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>PRI</string>
+        </void>
+        <void property="nombre">
+         <string>PRIMERA OLEADA</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>SEG</string>
+        </void>
+        <void property="nombre">
+         <string>SEGUNDA OLEADA</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>TER</string>
+        </void>
+        <void property="nombre">
+         <string>TERCERA OLEADA</string>
+        </void>
+       </object>
+      </void>
+      <void property="nombre">
+       <string>CONTRAATAQUE</string>
+      </void>
+     </object>
+    </void>
+    <void index="6">
+     <object idref="Criterio7"/>
+    </void>
+    <void index="7">
+     <object idref="Criterio2"/>
+    </void>
+    <void index="8">
+     <object idref="Criterio5"/>
+    </void>
+    <void index="9">
+     <object class="lince.modelo.InstrumentoObservacional.Criterio">
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>AMA</string>
+        </void>
+        <void property="nombre">
+         <string>TARJETA AMARILLA</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>DM</string>
+        </void>
+        <void property="descripcion">
+         <string>Dos minutos</string>
+        </void>
+        <void property="nombre">
+         <string>DOS MINUTOS</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="lince.modelo.InstrumentoObservacional.Categoria">
+        <void property="codigo">
+         <string>ROJ</string>
+        </void>
+        <void property="nombre">
+         <string>TARJETA ROJA</string>
+        </void>
+       </object>
+      </void>
+      <void property="nombre">
+       <string>SANCIÓN DISCIPLINARIA</string>
+      </void>
+     </object>
+    </void>
+   </array>
+  </void>
+ </object>
+</java>

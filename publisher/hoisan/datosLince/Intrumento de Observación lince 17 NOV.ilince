@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_24" class="java.beans.XMLDecoder"> 
+ <object class="lince.modelo.InstrumentoObservacional.RootInstrumentoObservacional"> 
+  <void method="add"> 
+   <object class="javax.swing.tree.DefaultMutableTreeNode"> 
+    <void property="userObject"> 
+     <string>Fijos</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.tree.DefaultMutableTreeNode"> 
+    <void property="userObject"> 
+     <string>Mixtos</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.tree.DefaultMutableTreeNode"> 
+    <void property="userObject"> 
+     <string>Variables</string> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>ON</string> 
+        </void> 
+        <void property="descripcion"> 
+         <string>Inicio posesión de balón equipo observado</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>ON</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>OFF</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>OFF</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="descripcion"> 
+       <string>Inicio y final de posesión de balón del equipo observado.
+</string> 
+      </void> 
+      <void property="nombre"> 
+       <string>INICIO Y FINAL DE POSESIÓN DE BALÓN</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>V1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>V1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>V2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>V2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>V3</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>V3</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>V4</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>V4</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>V5</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>V5</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>E</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>EMPATE</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>P1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>P2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P3</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>P3</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P4</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>P4</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P5</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>P5</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>MARCADOR</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SEIS</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SEIS CERO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CINCO</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CINCO UNO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CUAT</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CUATRO DOS</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>TRES</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>TRES DOS UNO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>MIXT1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>MIXTA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>MIXT2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DOBLE MIXTA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>IND</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>INDIVIDUAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>DEFENSA CONTRARIA</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>IGUAL</string> 
+        </void> 
+        <void property="descripcion"> 
+         <string> </string> 
+        </void> 
+        <void property="nombre"> 
+         <string>IGUAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SUP1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SUP1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SUP2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SUP2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SUP3</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SUP3</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>INF1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>INF1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>INF2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>INF2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>INF3</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>INF3</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>SIMETRIA / ASIMETRIA</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S3</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S3</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S4</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S4</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S5</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S5</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S6</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S6</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>S7</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>S7</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>SECUENCIA OFENSIVA</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>1x1</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>1x1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>2x2</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>2x2</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>HS</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>HACER SALTAR</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>FIJSUC</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>FIJACIONES SUCESIVAS</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="descripcion"> 
+       <string>Acción táctica ofensiva simple</string> 
+      </void> 
+      <void property="nombre"> 
+       <string>MEDIOS TÁCTICOS SIMPLES</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>DEXTIZQ</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DESDOBLAMIENTO EXTREMO IZQUIERDO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>DLATIZQ</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DESDOBLAMIENTO LATERAL IZQUIERDO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>DC</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DESDOBLAMIENTO CENTRAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>DLATDER</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DESDOBLAMIENTO LATERAL DERECHO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>DEXTDER</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>DESDOBLAMIENTO EXTREMO DERECHO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>MEDIOS TÁCTICOS COMPLEJOS DESDOBLAMIENTOS</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CCLAT</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CRUCE CENTRAL LATERAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CCEXT</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CRUCE CENTRAL EXTREMO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CCPIV</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CRUCE CENTRAL PIVOTE</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CLATC</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CRUCE LATERAL CENTRAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>CLATLAT</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>CRUCE LATERAL LATERAL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>P</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>PERMUTA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>MEDIOS TÁCTICOS COMPLEJOS CRUCES</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>PRIM</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>PRIMERA OLEADA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SEG</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SEGUNDA OLEADA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>TERSIS</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>TERCERA OLEADO SISTEMA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>CONTRAATAQUE</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="lince.modelo.InstrumentoObservacional.Criterio"> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>GOL</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>GOL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>OCG</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>OCASION CLARA DE GOL</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>PEN</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>PENALTY</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>SD</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>SANCION DISCIPLINARIA</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>GF</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>GOLPE FRANCO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>PB</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>PERDIDA BALON</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>ML</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>MAL LANZAMIENTO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>ER</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>ERROR REGLAMENTARIO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="lince.modelo.InstrumentoObservacional.Categoria"> 
+        <void property="codigo"> 
+         <string>REBOF</string> 
+        </void> 
+        <void property="nombre"> 
+         <string>REBOTE OFENSIVO</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="nombre"> 
+       <string>FINALIZACIÓN</string> 
+      </void> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="ano"> 
+   <string>2011</string> 
+  </void> 
+  <void property="autor"> 
+   <string>Demetrio Lozano Jarque</string> 
+  </void> 
+  <void property="nombre"> 
+   <string>Instrumento de Observación</string> 
+  </void> 
+ </object> 
+</java> 

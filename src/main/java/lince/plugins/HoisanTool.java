@@ -1,19 +1,21 @@
 package lince.plugins;
 
+import com.healthmarketscience.jackcess.Column;
 import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.Table;
 import lince.modelo.InstrumentoObservacional.*;
 import lince.modelo.Registro;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 
 /**
@@ -24,6 +26,7 @@ public class HoisanTool {
    private Logger log = Logger.getLogger(HoisanTool.class.getName());
    private static final String HOISAN_TEMPLATE_FILE = "template/hoisanTemplate.mdb";
    private static final int FRAME_WINDOW = 40;
+
    /**
     * @param file
     * @return
@@ -58,14 +61,33 @@ public class HoisanTool {
       }
       return true;
    }
+
    /**
-    *
     * @param outputFile
     * @return
     */
    public boolean exportFile(File outputFile) {
       try {
-         createValidEmptyHoisanFile(outputFile);
+         File realBaseFile = createValidEmptyHoisanFile(outputFile);
+         //tablas vacias
+         Database db = Database.open(realBaseFile);
+         Table tCriterios = db.getTable(HoisanVars.CRITERIA_TABLE_NAME.toString());
+         Table tCategorias = db.getTable(HoisanVars.CATEGORY_TABLE_NAME.toString());
+         Table tTiempos = db.getTable(HoisanVars.OBSERVATION_TIMES_TABLE_NAME.toString());
+         Table tTiempoCategorias = db.getTable(HoisanVars.OBSERVATION_CATEGORY_TABLE_NAME.toString());
+
+         //usado para obtener cuadros de dialogo en logica brais
+         String[] otros = {"TFrames", "DuraciónFr", "TSegundos", "DuraciónSeg", "TMilisegundos", "DuraciónMiliseg"};
+         //desde criterios tenemos toda la jerarquia de elementos a insertar en tables criterio y categoria
+         List<Criterio> criterios = Arrays.asList(InstrumentoObservacional.getInstance().getCriterios());
+         List<NodoInformacion> datosMixtos = Arrays.asList(InstrumentoObservacional.getInstance().getDatosMixtos());
+         List<NodoInformacion> datosFijos = Arrays.asList(InstrumentoObservacional.getInstance().getDatosFijos());
+         Object lista[] = new Object[criterios.size() + otros.length + datosMixtos.size() + datosFijos.size()];
+         //usado para exportar e importar en codigo brais
+         //en registro -> datos variables, tendriamos todos los datos necesarios para el registro temporal
+         Registro registro = Registro.getInstance();
+         //tCriterios.addRow(Column.AUTO_NUMBER,"tst","Lince","loren ipsum")
+         storeCriteria(db, tCriterios, criterios, tCategorias);
          return true;
       } catch (Exception e) {
          log.error("Error copying file ", e);
@@ -73,18 +95,52 @@ public class HoisanTool {
       return false;
    }
 
+
+   private void storeCriteria(Database db, Table data, List<Criterio> innerData, Table tCategories) {
+
+      for (Criterio criterio : innerData) {
+         try {
+            data.addRow(Column.AUTO_NUMBER, criterio.getNombre(), "Lince", criterio.getDescripcion());
+            Integer id = findCriteriaByName(data, criterio.getNombre());
+            db.flush();
+            for (Categoria cat : criterio.getCategoriasHijo()) {
+               //no entiendo pq va con doble id, pero asi funciona correctamente
+               //si no, da number format exception
+               tCategories.addRow(Column.AUTO_NUMBER
+                       , id
+                       , id
+                       , StringUtils.substring(cat.getNombre(), 0, 49)
+                       , cat.getDescripcion()
+                       , cat.getCodigo());
+               db.flush();
+            }
+         } catch (Exception e) {
+            log.error("storing criteria");
+         }
+      }
+      try {
+         db.flush();
+      } catch (Exception e) {
+         log.error("storing criteria -final commit");
+      }
+
+
+   }
+
    /**
     * Creates on selected File a valid Hoisan Empty File
+    *
     * @param outputFile
     * @throws IOException
     */
-   private void createValidEmptyHoisanFile(File outputFile) throws IOException {
+   private File createValidEmptyHoisanFile(File outputFile) throws IOException {
       ClassLoader classLoader = getClass().getClassLoader();
       File file = new File(classLoader.getResource(HOISAN_TEMPLATE_FILE).getFile());
       FileUtils.copyFile(file, outputFile);
-      outputFile.renameTo(new File(StringUtils.substringBeforeLast(outputFile.getPath(),".")+".mdb"));
+      File rtn = new File(StringUtils.substringBeforeLast(outputFile.getPath(), ".") + ".mdb");
+      outputFile.renameTo(rtn);
+      return rtn;
    }
-
 
 
    /**
@@ -105,7 +161,6 @@ public class HoisanTool {
    }
 
    /**
-    *
     * @param criterios
     * @param categorias
     * @return
@@ -140,7 +195,6 @@ public class HoisanTool {
    }
 
    /**
-    *
     * @param criterio
     * @param criterioId
     * @param categorias
@@ -158,7 +212,6 @@ public class HoisanTool {
    }
 
    /**
-    *
     * @param tiempos
     * @param tiempoCategorias
     * @param criterios
@@ -191,7 +244,6 @@ public class HoisanTool {
    }
 
    /**
-    *
     * @param timeId
     * @param tiempoCategorias
     * @param criterioTable
@@ -247,12 +299,16 @@ public class HoisanTool {
    /**
     * Devuelve la etiqueta de un id para criterios
     *
-    * @param criterioTable
+    * @param criteriaTable
     * @param id
     * @return
     */
-   private String findCriteriaById(Table criterioTable, int id) {
-      return findFieldWithValue(criterioTable, id, HoisanVars.CRITERIA_ID, HoisanVars.CRITERIA_NAME);
+   private String findCriteriaById(Table criteriaTable, int id) {
+      return findFieldWithValue(criteriaTable, id, HoisanVars.CRITERIA_ID, HoisanVars.CRITERIA_NAME);
+   }
+
+   private Integer findCriteriaByName(Table criteriaTable, String name) {
+      return findFieldWithValue(criteriaTable, name, HoisanVars.CRITERIA_NAME, HoisanVars.CRITERIA_ID);
    }
 
    /**
@@ -275,11 +331,11 @@ public class HoisanTool {
     * @param labelField
     * @return
     */
-   private String findFieldWithValue(Table table, Integer id, HoisanVars idField, HoisanVars labelField) {
+   private <T> T findFieldWithValue(Table table, Object id, HoisanVars idField, HoisanVars labelField) {
       try {
          for (Map<String, Object> row : table) {
             if (row.get(idField.toString()).equals(id)) {
-               return (String) row.get(labelField.toString());
+               return (T) row.get(labelField.toString());
             }
          }
       } catch (Exception e) {
