@@ -10,6 +10,9 @@ import java.util.Map;
  * Created by deicos on 09/06/2015.
  */
 public enum HoisanVars {
+   ACTORS_TABLE_NAME("Participantes"),
+   ACTORS_PK("IDParticipante"),
+   ACTORS_NAME("Codigo"),
    OBSERVATION_TIMES_TABLE_NAME("TiemposObservaciones"),
    OBSERVATION_CATEGORY_TABLE_NAME("TiemposCategoriasObservadas"),
 

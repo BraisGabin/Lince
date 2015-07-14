@@ -87,6 +87,7 @@ public class HoisanTool {
          //en registro -> datos variables, tendriamos todos los datos necesarios para el registro temporal
          Registro registro = Registro.getInstance();
          //tCriterios.addRow(Column.AUTO_NUMBER,"tst","Lince","loren ipsum")
+         Integer currentActorID = storeActor(db);
          storeCriteria(db, tCriterios, criterios, tCategorias);
          return true;
       } catch (Exception e) {
@@ -95,6 +96,19 @@ public class HoisanTool {
       return false;
    }
 
+   private Integer storeActor(Database db)
+   {
+      try{
+         Table table = db.getTable(HoisanVars.ACTORS_TABLE_NAME.toString());
+         table.addRow(Column.AUTO_NUMBER, "Lince","Exportación originada por Lince","Mixtas");
+         Integer aux = findFieldWithValue(table,"Lince",HoisanVars.ACTORS_NAME,HoisanVars.ACTORS_PK);
+         db.flush();
+         return aux;
+      }catch (Exception e){
+         log.error("iniciando actores del sistema");
+      }
+      return null;
+   }
 
    private void storeCriteria(Database db, Table data, List<Criterio> innerData, Table tCategories) {
 
