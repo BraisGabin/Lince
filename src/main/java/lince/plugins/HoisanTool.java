@@ -6,6 +6,7 @@ import com.healthmarketscience.jackcess.Table;
 import lince.modelo.FilaRegistro;
 import lince.modelo.InstrumentoObservacional.*;
 import lince.modelo.Registro;
+import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -13,10 +14,7 @@ import org.apache.log4j.Logger;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -94,6 +92,7 @@ public class HoisanTool {
          //tCriterios.addRow(Column.AUTO_NUMBER,"tst","Lince","loren ipsum")
          this.actorId = storeActor(db);
          storeCriteria(db, tCriterios, criterios, tCategorias);
+         storeObservationTimes(db,registro,tTiempos);
          return true;
       } catch (Exception e) {
          log.error("Error copying file ", e);
@@ -149,16 +148,57 @@ public class HoisanTool {
 
    }
 
-   private void storeObservationTimes(Registro registro, Table tTiempos) {
+   private void storeObservationTimes(Database db, Registro registro, Table tTiempos) {
       try {
-         //for (FilaRegistro entry:registro)
+         String fileuri = "Not defined. Imported from Lince";
+         String tipoDato = "Mixtas";
+         for (FilaRegistro entry:registro.datosVariables){
+            try {
+               tTiempos.addRow(Column.AUTO_NUMBER, entry.getFrames(),entry.getMilis(),entry.getFrames()+1,entry.getMilis()+1,fileuri,tipoDato);
+               Integer id = findFieldWithValue(tTiempos, entry.getFrames(), HoisanVars.TIME_INITIAL_FRAME, HoisanVars.TIME_ID);
+               db.flush();
+               this.timeMap.put(entry, id);
+            } catch (Exception e) {
+               log.error("storing criteria");
+            }
+         }
       } catch (Exception e) {
          log.error("Storing observation data", e);
       }
    }
 
-   private void storeObservationData(Registro registro, Table tTiempos) {
+   /**
+    * toma jeroma !!!
+    * @param data
+    * @param node
+    * @param <T>
+    * @return
+    */
+   private <T extends DefaultMutableTreeNode> Integer getElementMapId(Map<T,Integer> data,  T node){
+      for(Map.Entry<T, Integer> entry :data.entrySet()){
+         if (entry.getKey().equals(node)){
+            return entry.getValue();
+         }
+      }
+      return null;
+   }
 
+   private void storeObservationData(Database db, Registro registro, Table tTiemposCategoria) {
+
+         for (Map.Entry<FilaRegistro, Integer> entry : this.timeMap.entrySet()) {
+            FilaRegistro key = entry.getKey();
+            Integer timeId = entry.getValue();
+            for (Map.Entry<Criterio, Categoria> data :key.getRegistro().entrySet()){
+               try {
+               Integer categoryId = getElementMapId(this.categoryMap,data.getValue());
+               Integer criterioId = getElementMapId(this.criteriaMap,data.getKey());
+               tTiemposCategoria.addRow(Column.AUTO_NUMBER, categoryId,timeId,criterioId,this.actorId,"Lince",1);
+               db.flush();
+               } catch (Exception e) {
+                  log.error("Storing observation data", e);
+               }
+            }
+         }
    }
 
    /**
