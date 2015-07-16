@@ -3,6 +3,7 @@ package lince.plugins;
 import com.healthmarketscience.jackcess.Column;
 import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.Table;
+import lince.modelo.FilaRegistro;
 import lince.modelo.InstrumentoObservacional.*;
 import lince.modelo.Registro;
 import org.apache.commons.io.FileUtils;
@@ -26,6 +27,11 @@ public class HoisanTool {
    private Logger log = Logger.getLogger(HoisanTool.class.getName());
    private static final String HOISAN_TEMPLATE_FILE = "template/hoisanTemplate.mdb";
    private static final int FRAME_WINDOW = 40;
+
+   private HashMap<Criterio, Integer> criteriaMap = new HashMap<Criterio, Integer>();
+   private HashMap<Categoria, Integer> categoryMap = new HashMap<Categoria, Integer>();
+   private HashMap<FilaRegistro, Integer> timeMap = new HashMap<FilaRegistro, Integer>();
+   private Integer actorId;
 
    /**
     * @param file
@@ -82,12 +88,11 @@ public class HoisanTool {
          List<Criterio> criterios = Arrays.asList(InstrumentoObservacional.getInstance().getCriterios());
          List<NodoInformacion> datosMixtos = Arrays.asList(InstrumentoObservacional.getInstance().getDatosMixtos());
          List<NodoInformacion> datosFijos = Arrays.asList(InstrumentoObservacional.getInstance().getDatosFijos());
-         Object lista[] = new Object[criterios.size() + otros.length + datosMixtos.size() + datosFijos.size()];
          //usado para exportar e importar en codigo brais
          //en registro -> datos variables, tendriamos todos los datos necesarios para el registro temporal
          Registro registro = Registro.getInstance();
          //tCriterios.addRow(Column.AUTO_NUMBER,"tst","Lince","loren ipsum")
-         Integer currentActorID = storeActor(db);
+         this.actorId = storeActor(db);
          storeCriteria(db, tCriterios, criterios, tCategorias);
          return true;
       } catch (Exception e) {
@@ -96,15 +101,14 @@ public class HoisanTool {
       return false;
    }
 
-   private Integer storeActor(Database db)
-   {
-      try{
+   private Integer storeActor(Database db) {
+      try {
          Table table = db.getTable(HoisanVars.ACTORS_TABLE_NAME.toString());
-         table.addRow(Column.AUTO_NUMBER, "Lince","Exportación originada por Lince","Mixtas");
-         Integer aux = findFieldWithValue(table,"Lince",HoisanVars.ACTORS_NAME,HoisanVars.ACTORS_PK);
+         table.addRow(Column.AUTO_NUMBER, "Lince", "Exportación originada por Lince", "Mixtas");
+         Integer aux = findFieldWithValue(table, "Lince", HoisanVars.ACTORS_NAME, HoisanVars.ACTORS_PK);
          db.flush();
          return aux;
-      }catch (Exception e){
+      } catch (Exception e) {
          log.error("iniciando actores del sistema");
       }
       return null;
@@ -117,16 +121,20 @@ public class HoisanTool {
             data.addRow(Column.AUTO_NUMBER, criterio.getNombre(), "Lince", criterio.getDescripcion());
             Integer id = findCriteriaByName(data, criterio.getNombre());
             db.flush();
+            this.criteriaMap.put(criterio, id);
             for (Categoria cat : criterio.getCategoriasHijo()) {
                //no entiendo pq va con doble id, pero asi funciona correctamente
                //si no, da number format exception
+               String catName = StringUtils.substring(cat.getNombre(), 0, 49);
                tCategories.addRow(Column.AUTO_NUMBER
+                       , catName
                        , id
-                       , id
-                       , StringUtils.substring(cat.getNombre(), 0, 49)
                        , cat.getDescripcion()
-                       , cat.getCodigo());
+                       , cat.getCodigo()
+                       , null);
                db.flush();
+               Integer catId = findCategoryByCode(tCategories, cat.getCodigo());
+               this.categoryMap.put(cat, catId);
             }
          } catch (Exception e) {
             log.error("storing criteria");
@@ -138,6 +146,18 @@ public class HoisanTool {
          log.error("storing criteria -final commit");
       }
 
+
+   }
+
+   private void storeObservationTimes(Registro registro, Table tTiempos) {
+      try {
+         //for (FilaRegistro entry:registro)
+      } catch (Exception e) {
+         log.error("Storing observation data", e);
+      }
+   }
+
+   private void storeObservationData(Registro registro, Table tTiempos) {
 
    }
 
@@ -336,6 +356,10 @@ public class HoisanTool {
       return findFieldWithValue(categoriaTable, id, HoisanVars.CATEGORY_ID, HoisanVars.CATEGORY_NAME);
    }
 
+   private Integer findCategoryByCode(Table categoriaTable, String code) {
+      return findFieldWithValue(categoriaTable, code, HoisanVars.CATEGORY_CORE, HoisanVars.CATEGORY_ID);
+   }
+
    /**
     * Metodo generico para buscar una etiqueta en una table
     *
@@ -346,15 +370,18 @@ public class HoisanTool {
     * @return
     */
    private <T> T findFieldWithValue(Table table, Object id, HoisanVars idField, HoisanVars labelField) {
-      try {
-         for (Map<String, Object> row : table) {
-            if (row.get(idField.toString()).equals(id)) {
+
+      for (Map<String, Object> row : table) {
+         try {
+            Object aux =row.get(idField.toString());
+            if(aux!=null && aux.equals(id)){
                return (T) row.get(labelField.toString());
             }
+         } catch (Exception e) {
+            log.error(e);
          }
-      } catch (Exception e) {
-         log.error(e);
       }
+
       return null;
    }
 }
