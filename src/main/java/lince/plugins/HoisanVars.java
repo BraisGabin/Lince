@@ -10,6 +10,7 @@ import java.util.Map;
  * Created by deicos on 09/06/2015.
  */
 public enum HoisanVars {
+   RESEARCH_TABLE_NAME("DatosInvestigacion"),
    ACTORS_TABLE_NAME("Participantes"),
    ACTORS_PK("IDParticipante"),
    ACTORS_NAME("Codigo"),

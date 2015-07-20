@@ -42,6 +42,7 @@ Source: "C:\devtools\repository\github\Lince\target\lib\*"; DestDir: "{app}\lib"
 Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\imagenes\*"; DestDir: "{app}\iconos\imagenes"; Excludes: ".svn"; Flags: ignoreversion
 Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\x16\*"; DestDir: "{app}\iconos\x16"; Excludes: ".svn"; Flags: ignoreversion
 Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\x32\*"; DestDir: "{app}\iconos\x32"; Excludes: ".svn"; Flags: ignoreversion
+Source: "C:\devtools\repository\github\Lince\src\main\resources\template\*"; DestDir: "{app}\template"; Excludes: ".svn"; Flags: ignoreversion
 Source: "vlc-2.0.1-win32.exe"; DestDir: "{app}\requisitos\vlc"; Excludes: ".svn"; Flags: ignoreversion   
 Source: "jxpiinstall.exe"; DestDir: "{app}\requisitos\jre 1.6"; Excludes: ".svn"; Flags: ignoreversion
 Source: "manuales\Manual de usuario.pdf"; DestDir: "{app}"; Excludes: ".svn"; Flags: ignoreversion

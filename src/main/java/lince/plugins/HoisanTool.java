@@ -1,12 +1,9 @@
 package lince.plugins;
 
-import com.healthmarketscience.jackcess.Column;
-import com.healthmarketscience.jackcess.Database;
-import com.healthmarketscience.jackcess.Table;
+import com.healthmarketscience.jackcess.*;
 import lince.modelo.FilaRegistro;
 import lince.modelo.InstrumentoObservacional.*;
 import lince.modelo.Registro;
-import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -23,7 +20,7 @@ import java.util.*;
 public class HoisanTool {
 
    private Logger log = Logger.getLogger(HoisanTool.class.getName());
-   private static final String HOISAN_TEMPLATE_FILE = "template/hoisanTemplate.mdb";
+   private static final String HOISAN_TEMPLATE_FILE = "hoisanTemplate.mdb";
    private static final int FRAME_WINDOW = 40;
 
    private HashMap<Criterio, Integer> criteriaMap = new HashMap<Criterio, Integer>();
@@ -70,7 +67,7 @@ public class HoisanTool {
     * @param outputFile
     * @return
     */
-   public boolean exportFile(File outputFile) {
+   public String exportFile(File outputFile) {
       try {
          File realBaseFile = createValidEmptyHoisanFile(outputFile);
          //tablas vacias
@@ -91,21 +88,30 @@ public class HoisanTool {
          Registro registro = Registro.getInstance();
          //tCriterios.addRow(Column.AUTO_NUMBER,"tst","Lince","loren ipsum")
          this.actorId = storeActor(db);
+         log.warn("empezando");
          storeCriteria(db, tCriterios, criterios, tCategorias);
-         storeObservationTimes(db,registro,tTiempos);
-         return true;
+         log.warn("guardados criterios");
+         storeObservationTimes(db, registro, tTiempos,tTiempoCategorias);
+         log.warn("guardados tiempos");
+         //storeObservationData(db, registro, tTiempoCategorias);
+         log.warn("Finalizado");
+         db.flush();
+         return null;
       } catch (Exception e) {
          log.error("Error copying file ", e);
+         return e.toString();
       }
-      return false;
    }
+
 
    private Integer storeActor(Database db) {
       try {
          Table table = db.getTable(HoisanVars.ACTORS_TABLE_NAME.toString());
-         table.addRow(Column.AUTO_NUMBER, "Lince", "Exportación originada por Lince", "Mixtas");
+         table.addRow(Column.AUTO_NUMBER, "Lince", "Exportación originada por Lince", "EventoMultiModal");
          Integer aux = findFieldWithValue(table, "Lince", HoisanVars.ACTORS_NAME, HoisanVars.ACTORS_PK);
          db.flush();
+         Table t2 = db.getTable(HoisanVars.RESEARCH_TABLE_NAME.toString());
+         t2.addRow(Column.AUTO_NUMBER, "Registros Lince", "Registros Lince");
          return aux;
       } catch (Exception e) {
          log.error("iniciando actores del sistema");
@@ -119,7 +125,7 @@ public class HoisanTool {
          try {
             data.addRow(Column.AUTO_NUMBER, criterio.getNombre(), "Lince", criterio.getDescripcion());
             Integer id = findCriteriaByName(data, criterio.getNombre());
-            db.flush();
+            //db.flush();
             this.criteriaMap.put(criterio, id);
             for (Categoria cat : criterio.getCategoriasHijo()) {
                //no entiendo pq va con doble id, pero asi funciona correctamente
@@ -131,7 +137,7 @@ public class HoisanTool {
                        , cat.getDescripcion()
                        , cat.getCodigo()
                        , null);
-               db.flush();
+               //db.flush();
                Integer catId = findCategoryByCode(tCategories, cat.getCodigo());
                this.categoryMap.put(cat, catId);
             }
@@ -148,16 +154,18 @@ public class HoisanTool {
 
    }
 
-   private void storeObservationTimes(Database db, Registro registro, Table tTiempos) {
+   private void storeObservationTimes(Database db, Registro registro, Table tTiempos,Table tTiemposCategoria) {
       try {
          String fileuri = "Not defined. Imported from Lince";
-         String tipoDato = "Mixtas";
-         for (FilaRegistro entry:registro.datosVariables){
+         String tipoDato = "EventoMultiModal";
+         Date date = new Date();
+         for (FilaRegistro entry : registro.datosVariables) {
             try {
-               tTiempos.addRow(Column.AUTO_NUMBER, entry.getFrames(),entry.getMilis(),entry.getFrames()+1,entry.getMilis()+1,fileuri,tipoDato);
+               tTiempos.addRow(Column.AUTO_NUMBER, entry.getFrames(), entry.getMilis(), entry.getFrames() + 1, entry.getMilis() + 1, fileuri, tipoDato,date.toString(),"00:00:01",0);
                Integer id = findFieldWithValue(tTiempos, entry.getFrames(), HoisanVars.TIME_INITIAL_FRAME, HoisanVars.TIME_ID);
-               db.flush();
+               //db.flush();
                this.timeMap.put(entry, id);
+               storeObservationDataItem(db,tTiemposCategoria,entry,id);
             } catch (Exception e) {
                log.error("storing criteria");
             }
@@ -169,36 +177,45 @@ public class HoisanTool {
 
    /**
     * toma jeroma !!!
+    *
     * @param data
     * @param node
     * @param <T>
     * @return
     */
-   private <T extends DefaultMutableTreeNode> Integer getElementMapId(Map<T,Integer> data,  T node){
-      for(Map.Entry<T, Integer> entry :data.entrySet()){
-         if (entry.getKey().equals(node)){
+   private <T extends DefaultMutableTreeNode> Integer getElementMapId(Map<T, Integer> data, T node) {
+      for (Map.Entry<T, Integer> entry : data.entrySet()) {
+         if (entry.getKey().equals(node)) {
             return entry.getValue();
          }
       }
       return null;
    }
 
-   private void storeObservationData(Database db, Registro registro, Table tTiemposCategoria) {
-
-         for (Map.Entry<FilaRegistro, Integer> entry : this.timeMap.entrySet()) {
-            FilaRegistro key = entry.getKey();
-            Integer timeId = entry.getValue();
-            for (Map.Entry<Criterio, Categoria> data :key.getRegistro().entrySet()){
-               try {
-               Integer categoryId = getElementMapId(this.categoryMap,data.getValue());
-               Integer criterioId = getElementMapId(this.criteriaMap,data.getKey());
-               tTiemposCategoria.addRow(Column.AUTO_NUMBER, categoryId,timeId,criterioId,this.actorId,"Lince",1);
-               db.flush();
-               } catch (Exception e) {
-                  log.error("Storing observation data", e);
-               }
-            }
+   private int storeObservationDataItem(Database db,Table tTiemposCategoria, FilaRegistro item,Integer itemId){
+      int counter = 0;
+      for (Map.Entry<Criterio, Categoria> data : item.getRegistro().entrySet()) {
+         try {
+            Integer categoryId = getElementMapId(this.categoryMap, data.getValue());
+            Integer criterioId = getElementMapId(this.criteriaMap, data.getKey());
+            tTiemposCategoria.addRow(Column.AUTO_NUMBER, categoryId, itemId, criterioId, this.actorId, "Lince", 1);
+            counter++;
+            log.warn("Insertando Tiempo categoria " + counter);
+            //db.flush();
+         } catch (Exception e) {
+            log.error("Storing observation data", e);
          }
+      }
+      return counter;
+   }
+
+   private void storeObservationData(Database db, Registro registro, Table tTiemposCategoria) {
+      int counter = 0;
+      for (Map.Entry<FilaRegistro, Integer> entry : this.timeMap.entrySet()) {
+         FilaRegistro key = entry.getKey();
+         Integer timeId = entry.getValue();
+         counter += storeObservationDataItem(db,tTiemposCategoria,key,timeId);
+      }
    }
 
    /**
@@ -209,7 +226,11 @@ public class HoisanTool {
     */
    private File createValidEmptyHoisanFile(File outputFile) throws IOException {
       ClassLoader classLoader = getClass().getClassLoader();
-      File file = new File(classLoader.getResource(HOISAN_TEMPLATE_FILE).getFile());
+      File file = new File(classLoader.getResource("template/"+HOISAN_TEMPLATE_FILE).getFile());
+      if (file == null || !file.exists()){
+         //buscamos en la misma ubicación del jar
+         file = new File("./template/"+HOISAN_TEMPLATE_FILE);
+      }
       FileUtils.copyFile(file, outputFile);
       File rtn = new File(StringUtils.substringBeforeLast(outputFile.getPath(), ".") + ".mdb");
       outputFile.renameTo(rtn);
@@ -410,18 +431,29 @@ public class HoisanTool {
     * @return
     */
    private <T> T findFieldWithValue(Table table, Object id, HoisanVars idField, HoisanVars labelField) {
-
+      try {
+         CursorBuilder cursorBuilder = new CursorBuilder(table);
+         Cursor cursor = cursorBuilder.toCursor();
+         while (cursor.findNextRow(Collections.singletonMap(idField.toString(), id))) {
+            Map<String, Object> rowi = cursor.getCurrentRow();
+            if (rowi != null && rowi.get(labelField.toString()) != null) {
+               return (T) rowi.get(labelField.toString());
+            }
+         }
+      } catch (Exception e) {
+         log.error(e);
+      }
+      //metodo lento
       for (Map<String, Object> row : table) {
          try {
-            Object aux =row.get(idField.toString());
-            if(aux!=null && aux.equals(id)){
+            Object aux = row.get(idField.toString());
+            if (aux != null && aux.equals(id)) {
                return (T) row.get(labelField.toString());
             }
          } catch (Exception e) {
             log.error(e);
          }
       }
-
       return null;
    }
 }

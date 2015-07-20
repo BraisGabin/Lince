@@ -23,6 +23,7 @@ import lince.LinceFrame;
 import lince.plugins.HoisanTool;
 import lince.utiles.FiltroArchivos;
 import lince.utiles.ResourceBundleHelper;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -59,9 +60,12 @@ public class AbrirExportarHoisan extends Command {
             File file = fc.getSelectedFile();
             log.warn("Init export to Hoisan file: " + file.getName() + ".");
             HoisanTool hoisan = new HoisanTool();
-            boolean result  = hoisan.exportFile(file);
-            String message = ResourceBundleHelper.getI18NLabel(result?"action.result.export.ok":"action.result.export.fail");
-            JOptionPane.showMessageDialog(LinceFrame.getInstance(), message);
+            String result  = hoisan.exportFile(file);
+            String message = ResourceBundleHelper.getI18NLabel(StringUtils.isEmpty(result)?"action.result.export.ok":"action.result.export.fail");
+            if (StringUtils.isNotEmpty(result)){
+                message= message + "\n" + result;
+            }
+            JOptionPane.showMessageDialog(LinceFrame.getInstance(), message );
         } else {
             log.warn("Hoisan export cancelled by user.");
         }
