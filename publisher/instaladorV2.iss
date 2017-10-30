@@ -38,13 +38,15 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "Lince.jar"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\devtools\repository\github\Lince\target\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion 
-Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\imagenes\*"; DestDir: "{app}\iconos\imagenes"; Excludes: ".svn"; Flags: ignoreversion
-Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\x16\*"; DestDir: "{app}\iconos\x16"; Excludes: ".svn"; Flags: ignoreversion
-Source: "C:\devtools\repository\github\Lince\src\main\resources\iconos\x32\*"; DestDir: "{app}\iconos\x32"; Excludes: ".svn"; Flags: ignoreversion
-Source: "C:\devtools\repository\github\Lince\src\main\resources\template\*"; DestDir: "{app}\template"; Excludes: ".svn"; Flags: ignoreversion
-Source: "vlc-2.0.1-win32.exe"; DestDir: "{app}\requisitos\vlc"; Excludes: ".svn"; Flags: ignoreversion   
-Source: "jxpiinstall.exe"; DestDir: "{app}\requisitos\jre 1.6"; Excludes: ".svn"; Flags: ignoreversion
+Source: "F:\src\java\Lince\target\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion 
+Source: "F:\src\java\Lince\src\main\resources\iconos\imagenes\*"; DestDir: "{app}\iconos\imagenes"; Excludes: ".svn"; Flags: ignoreversion
+Source: "F:\src\java\Lince\src\main\resources\iconos\x16\*"; DestDir: "{app}\iconos\x16"; Excludes: ".svn"; Flags: ignoreversion
+Source: "F:\src\java\Lince\src\main\resources\iconos\x32\*"; DestDir: "{app}\iconos\x32"; Excludes: ".svn"; Flags: ignoreversion
+Source: "F:\src\java\Lince\src\main\resources\template\*"; DestDir: "{app}\template"; Excludes: ".svn"; Flags: ignoreversion
+; OJO! Must be exactly this version of VLC 2.0.1!!! Newest cause fail on startup and software does not work
+Source: "requisitos\vlc-2.0.1-win32.exe"; DestDir: "{app}\requisitos\vlc"; Excludes: ".svn"; Flags: ignoreversion   
+; OJO! We must provide JRE since oracle moved all repository  and it's swapping to new version
+Source: "requisitos\jre-6u43-windows-i586.exe"; DestDir: "{app}\requisitos\jre"; Excludes: ".svn"; Flags: ignoreversion
 Source: "manuales\Manual de usuario.pdf"; DestDir: "{app}"; Excludes: ".svn"; Flags: ignoreversion
 Source: "manuales\Users manual.pdf"; DestDir: "{app}"; Excludes: ".svn"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
@@ -53,7 +55,7 @@ Source: "manuales\Users manual.pdf"; DestDir: "{app}"; Excludes: ".svn"; Flags: 
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "JAVA_TOOL_OPTIONS"; ValueData: "-Dfile.encoding=UTF-8"
 
 [Run]
-Filename: "{app}\requisitos\jre 1.6\jxpiinstall.exe"; WorkingDir: {app}\requisitos\jre 1.6; StatusMsg: Instalando Java... espere por favor...
+Filename: "{app}\requisitos\jre\jre-6u43-windows-i586.exe"; WorkingDir: {app}\requisitos\jre; StatusMsg: Instalando Java... espere por favor...
 Filename: "{app}\requisitos\vlc\vlc-2.0.1-win32.exe"; WorkingDir: {app}\requisitos\vlc; StatusMsg: Instalando VLC... espere por favor...
 
 [Icons]
