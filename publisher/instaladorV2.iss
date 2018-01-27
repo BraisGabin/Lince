@@ -60,7 +60,9 @@ Filename: "{app}\requisitos\vlc\vlc-2.0.1-win32.exe"; WorkingDir: {app}\requisit
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\iconos\imagenes\icono.ico"
+Name: "{group}\{#MyAppName} Win10"; WorkingDir: "{app}";Filename: "{pf32}\Java\jre6\bin\java.exe";Parameters: "-jar {#MyAppExeName}"; IconFilename: "{app}\iconos\imagenes\icono.ico"
 Name: "{group}\Manual de usuario"; Filename: "{app}\Manual de usuario.pdf";
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFilename: "{app}\iconos\imagenes\icono.ico"
+Name: "{commondesktop}\{#MyAppName} Win10"; WorkingDir: "{app}";Filename: "{pf32}\Java\jre6\bin\java.exe";Parameters: "-jar {#MyAppExeName}"; Tasks: desktopicon; IconFilename: "{app}\iconos\imagenes\icono.ico"
 
