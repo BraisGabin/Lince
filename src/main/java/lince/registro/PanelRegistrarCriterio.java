@@ -17,10 +17,9 @@
  */
 package lince.registro;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Insets;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Enumeration;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -33,7 +32,7 @@ import lince.utiles.ButtonGroupNoExclusive;
  *
  * @author Brais
  */
-public class PanelRegistrarCriterio extends JPanel {
+public class PanelRegistrarCriterio extends JPanel /*implements MouseListener */{
 
     private Criterio criterio;
     private ButtonGroup buttonGroup;
@@ -66,7 +65,24 @@ public class PanelRegistrarCriterio extends JPanel {
             boton.setName(codigoCategoria);
             boton.setToolTipText(categoriaRaiz.getNombre());
             boton.setMargin(new Insets(0, 0, 0, 0));
+            /*
             boton.setBackground(Color.red);
+            boton.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    JToggleButton elem = ((JToggleButton) evt.getSource());
+                    elem.setBackground(Color.BLACK);
+                    elem.revalidate();
+                    //this.setBackground(Color.GREEN);
+                }
+
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    JToggleButton elem = ((JToggleButton) evt.getSource());
+                    elem.setBackground(UIManager.getColor("control"));
+                    elem.revalidate();
+                    //jButton1.setBackground(UIManager.getColor("control"));
+                }
+            });*/
+            //TODO
             buttonGroup.add(boton);
             add(boton);
         } else {
@@ -104,4 +120,40 @@ public class PanelRegistrarCriterio extends JPanel {
             buttonGroup.clearSelection();
         }
     }
+/*
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        JToggleButton button = ((JToggleButton) e.getSource());
+        Point buttonLocation = button.getLocationOnScreen();
+        Point cursor = e.getLocationOnScreen();
+        double west = buttonLocation.getX();
+        double east = buttonLocation.getX() + button.getWidth();
+        double north = buttonLocation.getY();
+        double south = buttonLocation.getY() + button.getHeight();
+        boolean inRow = cursor.getX() > west && cursor.getX() < east;
+        boolean inCol = cursor.getY() > north && cursor.getY() < south;
+        boolean inBounds = inRow || inCol;
+        button.setBackground(inBounds ? new Color(0xFFFF00) : null);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+    */
 }

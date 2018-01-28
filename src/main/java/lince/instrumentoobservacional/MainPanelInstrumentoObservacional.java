@@ -30,10 +30,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import lince.controladores.instrumentoobservacional.AddCategoria;
-import lince.controladores.instrumentoobservacional.AddCriterio;
-import lince.controladores.instrumentoobservacional.RemoveCategoria;
-import lince.controladores.instrumentoobservacional.RemoveCriterio;
+import lince.controladores.instrumentoobservacional.*;
 import lince.modelo.InstrumentoObservacional.*;
 
 /**
@@ -88,11 +85,15 @@ public class MainPanelInstrumentoObservacional extends JPanel implements TreeSel
 
             panelDeBotones.add(new JButton(new AddCategoria(node)));
             panelDeBotones.add(new JButton(new RemoveCriterio(node)));
+            panelDeBotones.add(new JButton(new MoveRuleAction(node,jTree,true)));
+            panelDeBotones.add(new JButton(new MoveRuleAction(node,jTree,false)));
         } else if (node instanceof Categoria) {
             componenteActual = new PanelCategoria((Categoria) node);
 
             panelDeBotones.add(new JButton(new AddCategoria(node)));
             panelDeBotones.add(new JButton(new RemoveCategoria(node)));
+            panelDeBotones.add(new JButton(new MoveRuleAction(node,jTree,true)));
+            panelDeBotones.add(new JButton(new MoveRuleAction(node,jTree,false)));
         } else if (node instanceof RootInstrumentoObservacional) {
             componenteActual = new PanelInstrumentoObservacional((RootInstrumentoObservacional) node);
         } else if (node instanceof NodoInformacion) {
@@ -106,7 +107,7 @@ public class MainPanelInstrumentoObservacional extends JPanel implements TreeSel
         if (componenteActual != null) {
             panelDeTrabajo.add(componenteActual, BorderLayout.CENTER);
         }
-
+        //jTree = new JTree(InstrumentoObservacional.getInstance().getModel());
         repaint();
         validate();
     }

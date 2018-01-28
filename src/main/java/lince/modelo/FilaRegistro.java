@@ -136,9 +136,7 @@ public class FilaRegistro implements Comparable<FilaRegistro>, Serializable {
     /**
      *
      * @return
-     * @deprecated Unicamente para que funcione el XMLEncoder
      */
-    @Deprecated
     public Map<Criterio, Categoria> getRegistro() {
         return registro;
     }
@@ -146,9 +144,7 @@ public class FilaRegistro implements Comparable<FilaRegistro>, Serializable {
     /**
      *
      * @return
-     * @deprecated Unicamente para que funcione el XMLEncoder
      */
-    @Deprecated
     public Map<NodoInformacion, String> getDatosMixtos() {
         return datosMixtos;
     }

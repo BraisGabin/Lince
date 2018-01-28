@@ -17,6 +17,8 @@
  */
 package lince.modelo.InstrumentoObservacional;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -36,6 +38,13 @@ public class Categoria extends DefaultMutableTreeNode {
 
     public Categoria(String nombre) {
         this.nombre = nombre;
+        if (StringUtils.isEmpty(this.codigo)){
+            String codeName = StringUtils.EMPTY;
+            for (String item: nombre.split(" ")){
+                codeName+= item.substring(0,1);
+            }
+            this.codigo = codeName;
+        }
     }
 
     public String getCodigo() {

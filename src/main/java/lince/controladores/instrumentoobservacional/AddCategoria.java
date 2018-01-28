@@ -40,7 +40,7 @@ public class AddCategoria extends Command {
 
     @Override
     public void execute() {
-        InstrumentoObservacional.getInstance().addHijo(parent, java.util.ResourceBundle.getBundle("i18n.Bundle").getString("NUEVA CATEGORIA"));
+        InstrumentoObservacional.getInstance().addHijo(parent, java.util.ResourceBundle.getBundle("i18n.Bundle").getString("categoria.defaultName"));
         //TODO: hacer que cuando creas un nodo su padre aparezca expandido
     }
 

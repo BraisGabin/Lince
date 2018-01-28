@@ -32,7 +32,7 @@ import lince.utiles.Tiempo;
  */
 public class ModeloDeTablaLince extends AbstractTableModel {
 
-    protected List<FilaRegistro> datosVariables;
+    public List<FilaRegistro> datosVariables;
     protected NodoInformacion datosMixtos[];
     protected Criterio datos[];
 

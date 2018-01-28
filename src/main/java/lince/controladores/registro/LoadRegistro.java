@@ -56,7 +56,7 @@ public class LoadRegistro extends Command {
             if (f != null) {
                 if (f.canRead()) {
                     try {
-                        Registro.loadIntance(f);
+                        Registro.loadInstance(f);
                     } catch (RegistroException ex) {
                         JOptionPane.showMessageDialog(null, ex.getMessage(), "Lince", JOptionPane.INFORMATION_MESSAGE);
                     }

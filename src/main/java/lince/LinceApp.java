@@ -17,57 +17,62 @@
  */
 package lince;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.SwingUtilities;
-
 import lince.datos.ControladorArchivos;
 import lince.utiles.IOController;
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.binding.LibVlcFactory;
+import org.apache.commons.lang.StringUtils;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import uk.co.caprica.vlcj.runtime.windows.WindowsRuntimeUtil;
 
+import javax.swing.*;
+import java.io.File;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
- *
  * @author Brais Gabin Moreira
  */
 public class LinceApp {
+
+    private static Logger logger = Logger.getLogger(LinceApp.class.getName());
 
     /**
      * @param args the command line arguments
      */
     public static void main(final String[] args) {
-
-        if (RuntimeUtil.isWindows()) {
-            System.setProperty("jna.library.path", WindowsRuntimeUtil.getVlcInstallDir());
-            setI18n();
-        }
-
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                LinceFrame.getInstance();
+        String vlcPath = StringUtils.EMPTY;
+        try {
+            if (RuntimeUtil.isWindows()) {
+                vlcPath = WindowsRuntimeUtil.getVlcInstallDir();
+            /*if (StringUtils.isEmpty(vlcPath)){
+                vlcPath= "C:\\Program Files (x86)\\VideoLAN";
+            }*/
+                System.setProperty("jna.library.path", vlcPath);
+                setI18n();
             }
-        });
+            SwingUtilities.invokeLater(new Runnable() {
+
+                @Override
+                public void run() {
+                    LinceFrame.getInstance();
+                }
+            });
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error inicializando main. vlcPath@" + vlcPath, e);
+        }
     }
 
+    /**
+     *
+     */
     private static void setI18n() {
         try {
             File file = new File(IOController.pathAppdata() + "i18n.locale");
             Locale locale = (Locale) ControladorArchivos.getInstance().cargarSerializable(file);
             Locale.setDefault(locale);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(LinceApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(LinceApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LinceApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error Setting I18N for Lince", e);
         }
     }
 }
